@@ -1,0 +1,16 @@
+name: astrbot_plugin_icloud_calendar
+display_name: iCloud 日历
+short_desc: 让 AstrBot AI 安全地管理 iCloud CalDAV 日程。
+desc: >-
+  为 AstrBot AI 提供 Apple iCloud 日历的查询、搜索、创建、修改和删除能力。
+  支持固定新建日历和按日历过滤；内置时间窗口切片、响应自动二分、SQLite 索引、
+  游标分页和 ETag 并发保护，适合大量日程。
+version: 0.2.0
+author: sanfuhualv
+repo: https://github.com/sanfuhualv/astrbot_plugin_icloud_calendar
+astrbot_version: ">=4.9.2,<5"
+tags:
+  - calendar
+  - icloud
+  - caldav
+  - productivity

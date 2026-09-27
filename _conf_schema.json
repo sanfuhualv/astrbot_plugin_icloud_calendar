@@ -1,0 +1,84 @@
+{
+  "creation_calendar": {
+    "description": "新建日程目标日历",
+    "type": "string",
+    "default": "",
+    "hint": "填写日历名称或 calendar_id。插件创建的所有日程都会写入这个日历；留空时禁止创建。",
+    "obvious_hint": true
+  },
+  "excluded_calendars": {
+    "description": "过滤日历",
+    "type": "string",
+    "default": "",
+    "hint": "填写日历名称关键词或 calendar_id，多个值用逗号或换行分隔。例如填写“自动化”，来自名称中含“自动化”的日程不会返回给 AI。",
+    "obvious_hint": true
+  },
+  "apple_id": {
+    "description": "Apple Account 邮箱",
+    "type": "string",
+    "default": "",
+    "hint": "用于 iCloud CalDAV 登录。插件不会把此值交给大模型。",
+    "obvious_hint": true
+  },
+  "app_specific_password": {
+    "description": "Apple App 专用密码",
+    "type": "string",
+    "default": "",
+    "secret": true,
+    "hint": "请在 account.apple.com 生成 App 专用密码，不要填写 Apple Account 主密码。",
+    "obvious_hint": true
+  },
+  "default_timezone": {
+    "description": "默认时区",
+    "type": "string",
+    "default": "Asia/Shanghai",
+    "hint": "IANA 时区名称，例如 Asia/Shanghai、Europe/London。"
+  },
+  "caldav_base_url": {
+    "description": "CalDAV 服务地址",
+    "type": "string",
+    "default": "https://caldav.icloud.com/",
+    "hint": "通常无需修改，必须使用 HTTPS。"
+  },
+  "write_enabled": {
+    "description": "允许 AI 修改日历",
+    "type": "bool",
+    "default": false,
+    "hint": "关闭时仅允许查询。开启后，创建、修改和删除工具仍要求 confirmed=true。",
+    "obvious_hint": true
+  },
+  "allow_group_access": {
+    "description": "允许群聊访问日历",
+    "type": "bool",
+    "default": false,
+    "hint": "个人日历通常不应暴露给群聊。"
+  },
+  "allowed_sessions": {
+    "description": "允许访问的会话 ID",
+    "type": "list",
+    "default": [],
+    "hint": "留空表示不限制私聊会话；填写后只允许列出的 event.unified_msg_origin。"
+  },
+  "query_shard_days": {
+    "description": "远端查询切片天数",
+    "type": "int",
+    "default": 7,
+    "hint": "日程特别密集时可减小到 1。"
+  },
+  "max_query_days": {
+    "description": "单次查询最大天数",
+    "type": "int",
+    "default": 366
+  },
+  "max_page_size": {
+    "description": "单页最大日程数",
+    "type": "int",
+    "default": 200
+  },
+  "max_response_mb": {
+    "description": "单个 CalDAV 响应上限（MiB）",
+    "type": "int",
+    "default": 16,
+    "hint": "超过后自动把时间片二分，防止巨量日程耗尽内存。"
+  }
+}
